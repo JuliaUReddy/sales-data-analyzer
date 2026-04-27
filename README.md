@@ -16,4 +16,4 @@ A simple Python project that reads sales data from a CSV file and provides insig
 
 ## How to Run
 ```bash
-python main.py
+python data_analyzer.py
