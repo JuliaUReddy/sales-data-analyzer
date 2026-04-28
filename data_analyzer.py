@@ -27,10 +27,12 @@ def highestSpender(data):
     totals = {}
 
     for row in data:
-        if row["Name"] in totals:
-            totals["Name"] += row['Amount']
+        name = row["Name"]
+        amount = row["Amount"]
+        if name in totals:
+            totals[name] += amount
         else:
-            totals["Name"] = row['Amount']
+            totals[name] = amount
 
     for name, total in totals.items():
         print(f"{name}: {total}")
@@ -52,13 +54,17 @@ def productSales(data):
 
 
     for row in data:
-        product = row["Name"]
+        product = row["Product"]
         amount = int(row['Amount'])
         if product in product_sales:
             product_sales[product] += amount
         else:
             product_sales[product] = amount
-    for product, total in product_sales.items():
+
+    #Sorting Part
+    sorted_products = sorted(product_sales.items(), key = lambda x: x[1], reverse = True)
+    print("Sales by product -> Highest to lowest")
+    for product, total in sorted_products:
         print(f"{product}: {total}")
 
 
@@ -66,7 +72,11 @@ def productSales(data):
 def main():
     data = loadSalesData()
     while True:
-        choice = int(input("\n 1: List All Sales 2: Top Spender 3: Each Product Sale 4: Exit\n"))
+        try:
+            choice = int(input("\n 1: List All Sales 2: Top Spender 3: Each Product Sale 4: Exit\n"))
+        except ValueError:
+            print("Please enter a number")
+            continue
 
         if choice == 1:
             listAllSales(data)
