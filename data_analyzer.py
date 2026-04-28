@@ -61,10 +61,13 @@ def productSales(data):
         else:
             product_sales[product] = amount
 
-    #Sorting Part
-    sorted_products = sorted(product_sales.items(), key = lambda x: x[1], reverse = True)
-    print("Sales by product -> Highest to lowest")
-    for product, total in sorted_products:
+    #Sorting and Printing Top Three Products
+
+    sorted_products = sorted(product_sales.items(), key = lambda x:x[1], reverse = True)
+    top_3 = sorted_products[:3]
+
+    print("\n Top Three Highest to Lowest:\n")
+    for product, total in top_3:
         print(f"{product}: {total}")
 
 
@@ -94,3 +97,8 @@ def main():
 main()
 
 
+''' #Sorting Part
+    sorted_products = sorted(product_sales.items(), key = lambda x: x[1], reverse = True)
+    print("Sales by product -> Highest to lowest")
+    for product, total in sorted_products:
+        print(f"{product}: {total}") '''

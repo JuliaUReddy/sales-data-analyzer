@@ -11,6 +11,8 @@ A simple Python project that reads sales data from a CSV file and provides insig
 - Identify highest spender
 - Product-wise sales (sorted from highest to lowest)
 - Input validation using try-except
+## New Feature
+- Display Top 3 products based on sales
 
 ## Tech Used
 - Python
